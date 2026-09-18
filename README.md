@@ -1,5 +1,4 @@
-# Mahdi-Jalali(enterprise-Webapplicaiton)
-The repository of doing lab assignments
-
+# Mahdi-Jalali(enterprise-Web-Application)
+** This repository made for doing the Enterprise Web Application LAB Assignments **
 
 ## 1. My first commit is for working on making the campus hub 
