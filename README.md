@@ -3,7 +3,13 @@
 
 ## 1. Working on Campus Hub Web-Application
 ** The Campus Hub made of some parts as bellow: **
-1. packes and dependencies that it uses to executes the project parts
-2. EduApplication.java: This file is the start point of the project that's runs the entire web-app
-3. 
+## Project Structure
+Core components of Campus-Hub web-application:
+
+| **`EduApplication.java`** | Entry Point | The main initialization file that bootstraps and runs the entire Spring Boot/Java web application. |
+| **`CourseController.java`** | Controller Layer | Manages incoming HTTP client requests, handles business workflow coordination, and dispatches JSON responses. |
+| **`Course.java`** | Model / Entity | Defines the schema, fields, and structural data properties representing a Course object. |
+| **`CourseInput.java`** | Data Access Layer | Defines data ingestion formats and handles reading/writing course records directly to a local JSON storage file. |
+| **`application.properties`**| Configuration | Central configuration file specifying server variables like active ports, database setups, and environment profiles. |
+
 
