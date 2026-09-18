@@ -6,10 +6,10 @@
 ## Project Structure
 Core components of Campus-Hub web-application:
 
-| **`EduApplication.java`** | Entry Point | The main initialization file that bootstraps and runs the entire Spring Boot/Java web application. |
-| **`CourseController.java`** | Controller Layer | Manages incoming HTTP client requests, handles business workflow coordination, and dispatches JSON responses. |
-| **`Course.java`** | Model / Entity | Defines the schema, fields, and structural data properties representing a Course object. |
-| **`CourseInput.java`** | Data Access Layer | Defines data ingestion formats and handles reading/writing course records directly to a local JSON storage file. |
-| **`application.properties`**| Configuration | Central configuration file specifying server variables like active ports, database setups, and environment profiles. |
+1. **`EduApplication.java`** | Entry Point | The main initialization file that bootstraps and runs the entire Spring Boot/Java web application. 
+2. **`CourseController.java`** | Controller Layer | Manages incoming HTTP client requests, handles business workflow coordination, and dispatches JSON responses. 
+3. **`Course.java`** | Model / Entity | Defines the schema, fields, and structural data properties representing a Course object. 
+4. **`CourseInput.java`** | Data Access Layer | Defines data ingestion formats and handles reading/writing course records directly to a local JSON storage file. 
+5. **`application.properties`**| Configuration | Central configuration file specifying server variables like active ports, database setups, and environment profiles. 
 
 
