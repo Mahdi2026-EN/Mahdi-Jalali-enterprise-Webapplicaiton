@@ -34,3 +34,48 @@ Spring Boot automatically handles this for us. When the controller returns a Lis
 
 6. What would happen if BookController were placed outside the package hierarchy scanned by the Spring Boot application?
 Spring Boot might not find the BookController, because it normally scans the package where the main application class is located and its subpackages. If the controller is outside that scanned area, Spring won't register it, and requests to /api/v1/books may result in a 404 Not Found error.
+
+
+# Books REST API - Spring Boot Lab Assignment 03
+
+
+## What I did in this assignment:
+The purpose of this lab was to practice working with REST APIs using Spring
+Boot, especially how to update and delete resources using HTTP PUT and DELETE
+methods.
+
+For testing the API, I used Postman.
+
+
+# About This Project
+
+In this lab, I worked on a simple Books REST API.
+
+The application keeps a list of books and provides REST endpoints that allow
+a client to:
+
+- View all books
+- Update an existing book
+- Delete a book
+- Check what happens when a requested book does not exist
+
+The project helped me understand how a Spring Boot controller receives HTTP
+requests and sends responses back to a client such as Postman.
+
+
+# Main Objectives
+
+The main objectives of this lab were:
+
+1. Understand the HTTP PUT method.
+2. Understand the HTTP DELETE method.
+3. Use `@PutMapping` in Spring Boot.
+4. Use `@DeleteMapping` in Spring Boot.
+5. Use `@PathVariable` to get a book ID from the URL.
+6. Use `@RequestBody` to receive JSON data.
+7. Return appropriate HTTP status codes.
+8. Test REST API endpoints using Postman.
+9. Understand how a REST API works with resources.
+
+
+
