@@ -77,5 +77,16 @@ The main objectives of this lab were:
 8. Test REST API endpoints using Postman.
 9. Understand how a REST API works with resources.
 
+## A mention:
+### Form LAB (1 - 3) I was pushed the projects to the main branch because they were the same project but in different steps
+### Form now on I will make a separate branch for each LAB assignment just like LAB - 04
+
+# LAB 04 ( since it is the prerequisites for making front end using React framework):
+1. Making a react project file
+2. Installing the react project content using the "npm install vite@latest project-name"
+3. After installing the react project content we have to download the dependencies for running the project using "npm install" this
+4. Running the project using the "npm run dev" 
+5. By default the project will be run in "localhost:5173" 
+
 
 
