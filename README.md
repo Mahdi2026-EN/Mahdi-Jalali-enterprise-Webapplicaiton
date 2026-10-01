@@ -79,7 +79,7 @@ The main objectives of this lab were:
 
 ## A mention:
 ### Form LAB (1 - 3) I was pushed the projects to the main branch because they were the same project but in different steps
-### Form now on I will make a separate branch for each LAB assignment just like LAB - 04
+### Form now on I will make a separate folder for each LAB assignment just like LAB - 04
 
 # LAB 04 ( since it is the prerequisites for making front end using React framework):
 1. Making a react project file
