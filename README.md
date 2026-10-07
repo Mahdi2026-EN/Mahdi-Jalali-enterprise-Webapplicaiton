@@ -89,4 +89,47 @@ The main objectives of this lab were:
 5. By default the project will be run in "localhost:5173" 
 
 
+# Lab-05
+# Kabul University | Faculty of Computer Science
+## Enterprise Web App — Course/Book API Integration Lab
+
+**Student Name:** [Mahdi Jalali]  
+**Father's Name:** [Abdullah]  
+**Department:** Computer Science Information System    
+**Lab Date:** 7 October 2026
+---------------------------------
+
+## Execution & Port Instructions
+
+### Backend (Spring Boot) I made the Backend files in Bookapi folder
+* **Port:** `http://localhost:8080`
+* **Run Command:** ./mvnw spring-boot:run
+* **REST Endpoint:** `GET http://localhost:8080/api/v1/books`
+
+### Frontend (ReactJS + Vite)
+* **Port:** `http://localhost:5173`
+* **Run Command:** `npm run dev`
+* **Target View Route:** `http://localhost:5173/courses`
+
+---
+
+## Lab Assessment Questions & Answers
+
+### 1. Why use `useEffect` here?
+We use `useEffect` with an empty dependency array (`[]`) to execute a "side effect"—specifically an asynchronous HTTP 
+request to fetch data from our external backend API. By setting the dependency array to empty, we ensure that the network 
+request runs exactly once automatically right after the component mounts onto the screen.
+
+### 2. What does `setCourses` (or `setBooks`) do?
+It is a state updater function provided by the `useState` hook. When we call it with new data returned from our Axios request, it 
+updates our local state variable and tells React that the component data has changed. This automatically triggers a UI re-render, 
+safely replacing any loading screens with our filled data table.
+
+### 3. Why can Postman work while a browser request fails?
+Postman is a server-to-server desktop utility application that executes requests directly through your operating system's network 
+layer, completely ignoring browser-specific application security controls. Browsers, however, strictly enforce a security policy called 
+**CORS (Cross-Origin Resource Sharing)**. If a frontend application hosted on port `5173` tries to fetch data from a backend server on 
+port `8080`, the browser will immediately block the request unless the backend explicitly sends a permissive `@CrossOrigin` header granting entry.
+
+
 
