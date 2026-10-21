@@ -129,5 +129,62 @@ layer, completely ignoring browser-specific application security controls. Brows
 **CORS (Cross-Origin Resource Sharing)**. If a frontend application hosted on port `5173` tries to fetch data from a backend server on 
 port `8080`, the browser will immediately block the request unless the backend explicitly sends a permissive `@CrossOrigin` header granting entry.
 
+** ___________________________________________ **
+# Lab 6:
+# Course Management (Edit and Delete Capabilities)
+
+
+## 1. Executive Summary
+Following the successful implementation of the course retrieval grid in Lab 5, **Lab 6 introduces full write-mutation behaviors** to the frontend. The project structure was preserved while expanding our centralized API client and UI layers. Special attention was paid to data types normalization to circumvent common JavaScript runtime object assignment crashes during data transmission.
+
+---
+
+## 2. Project Architecture & File Structure
+The application structure isolates backend API calls from component view states using the following structure:
+* **`src/services/courseApi.js`**: Managed network layer configuration utilizing Axios instances.
+* **`src/components/Courses.jsx`**: Handled view presentation, form bindings, and local component states.
+* **`src/App.jsx` & `src/main.jsx`**: Structured the root application context and global layout bindings.
+
+---
+
+## Core Technical Implementations
+
+### A. API Client Extensions (`courseApi.js`)
+We expanded the Axios client module by implementing two new service function bindings mapped precisely to our Spring Boot REST controllers:
+* `updateCourse(id, course)`: Issues an HTTP **PUT** request targeting `/api/v1/courses/{id}`.
+* `deleteCourse(id)`: Issues an HTTP **DELETE** request targeting `/api/v1/courses/{id}`.
+
+### B. Defensive Programming & Data Sanitation (`Courses.jsx`)
+A primary issue addressed during development was the handling of unformatted data inputs from backend payloads. If an identifier or code field is received natively as a numeric data type, performing string operations like `.trim()` throws a terminal execution error (`TypeError: course.code.trim is not a function`).
+
+To fix this, we implemented safe Type Coercion fallback routines using nullish coalescing operators:
+```javascript
+code: String(course.code ?? "").trim(),
+title: String(course.title ?? "").trim(),
+credits: Number(course.credits)
+```
+This guarantees that all modified variables are strictly normalized to strings before sanitation, and credits are securely explicitly cast back to integers before payload delivery.
+
+### C. Interactive UI State Manipulations
+1. **Conditional Context Rendering**: Added an `editingId` local state anchor. When set to `null`, the editing modal remains unmounted. When configured with a valid record key, a specialized Bootstrap form section mounts dynamically above the data table grid.
+2. **Two-Way Controlled Forms**: Implemented structural `onChange` tracking callbacks using modern React functional state patterns (`setCourse(previous => ({ ...previous, [name]: value }))`) to avoid asynchronous state capture discrepancies.
+3. **Data Grid Modifications**: Augmented the global data table with an interactive "Actions" command cell row. Buttons styled via Bootstrap contextual themes (`btn-warning`, `btn-danger`) were bound directly to explicit state-altering event hooks.
+
+---
+
+## 4. Verification & Testing Logs
+
+### Test Case 1: Editing Workflow
+* **Action**: Selected course entry ID `101` and modified the core fields.
+* **Result**: The UI successfully triggered the `handleEdit` routine, populated the input state fields flawlessly, and executed an accurate **PUT** transaction. Local view layers re-synchronized perfectly upon receiving a `200 OK` status from the API server.
+
+### Test Case 2: Deletion Routine
+* **Action**: Clicked the delete operational hook for a target course row.
+* **Result**: A generic native browser interceptor dialog (`window.confirm`) requested operational confirmation. Upon acceptance, a background **DELETE** query completed successfully, prompting a table refresh and a localized success indicator alert banner.
+
+---
+
+## 5. Conclusion & Troubleshooting Insights
+The deployment of Lab 6 successfully rounds out core transactional management for courses. During staging, local testing environments required close inspection of browser inspector tool payloads to ensure matching schema constraints between JavaScript and Java model objects. The implementation demonstrates clear, maintainable state practices by separating clean API communication wrappers from reactive interface elements.
 
 
